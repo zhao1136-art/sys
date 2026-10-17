@@ -1,0 +1,53 @@
+; ============================================================
+; andun.inf - 御天内核驱动安装信息文件
+;
+; 用于通过 pnputil 或 INF 安装方式安装驱动
+; 也可使用 install_driver.bat 通过 sc 命令安装
+; ============================================================
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %ProviderName%
+CatalogFile = andun.cat
+DriverVer   = 08/04/2026,1.0.0.0
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+andun.sys = 1
+
+[DefaultInstall.NTamd64]
+CopyFiles  = Andun_Driver_Files
+
+[DefaultInstall.NTamd64.Services]
+AddService  = AndunDriver,,Andun_Service_Inst
+
+[DefaultUninstall.NTamd64]
+DelFiles = Andun_Driver_Files
+
+[DefaultUninstall.NTamd64.Services]
+DelService = AndunDriver,0x200
+
+[Andun_Driver_Files]
+andun.sys
+
+[Andun_Service_Inst]
+DisplayName    = %ServiceName%
+Description    = %ServiceDesc%
+ServiceType    = 1    ; SERVICE_KERNEL_DRIVER
+StartType      = 3    ; SERVICE_DEMAND_START
+ErrorControl   = 1    ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\andun.sys
+
+[Strings]
+ProviderName  = "御天安全"
+DiskName      = "御天内核驱动安装盘"
+ServiceName   = "御天内核驱动"
+ServiceDesc   = "御天杀毒软件内核级安全防护驱动"

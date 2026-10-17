@@ -1,0 +1,76 @@
+﻿name: Build Driver
+
+# 在 GitHub 云端编译内核驱动，产出 andun.sys
+#
+# 为什么用 CI 而不是本机：
+#   编内核驱动必须有 WDK + MSVC。WDK 约 1 GB、MSVC 约 4 GB，装在本机很重；
+#   GitHub 的 windows runner 自带 MSVC，只要补装 WDK 就能编，几分钟出一个 .sys。
+#   这也是绝大多数「GitHub 上能看到 .sys」的项目实际的做法。
+#
+# ⚠️ 状态说明：本工作流尚未成功跑通过（驱动源码从没编译过）。
+#    第一次运行几乎一定会在编译阶段报一堆错 —— 那是正常的第一步，
+#    照着 Actions 日志里 cl.exe 的报错逐条改源码。
+
+on:
+  workflow_dispatch:          # 手动触发
+  push:
+    paths:
+      - 'driver/**'   # 驱动源码一改就自动编
+      - '.github/workflows/build-driver.yml'
+
+jobs:
+  build-driver:
+    runs-on: windows-2022
+    timeout-minutes: 30
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 WDK
+        shell: pwsh
+        run: |
+          # WDK 官方 silent install。它会把 km/ 内核头文件和 ntoskrnl.lib 等
+          # 装进 Windows Kits\10\Include|Lib，并给 VS 装上驱动开发组件。
+          $url = 'https://go.microsoft.com/fwlink/?linkid=2307229'   # WDK for Win11 24H2
+          $out = "$env:RUNNER_TEMP\wdksetup.exe"
+          Write-Host "下载 WDK..."
+          Invoke-WebRequest -Uri $url -OutFile $out -UseBasicParsing
+          Write-Host "静默安装 WDK（约 2-4 分钟）..."
+          Start-Process -FilePath $out -ArgumentList '/q','/norestart','/ceip','off' -Wait
+          # 报告装到哪了，便于排查
+          Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\Include' -ErrorAction SilentlyContinue |
+            ForEach-Object { Write-Host "  Include: $($_.Name)" }
+
+      - name: 配置 MSVC 环境
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: 编译驱动
+        shell: cmd
+        run: |
+          cd /d "%GITHUB_WORKSPACE%\driver"
+          call build.bat release
+          if errorlevel 1 (
+            echo ::error::驱动编译失败，见上方 cl.exe / link.exe 的输出
+            exit /b 1
+          )
+
+      - name: 检查产物
+        shell: pwsh
+        run: |
+          $sys = 'driver/andun.sys'
+          if (-not (Test-Path $sys)) { Write-Error "没有产出 andun.sys"; exit 1 }
+          $f = Get-Item $sys
+          Write-Host ("  andun.sys  {0:N0} 字节" -f $f.Length)
+          $hash = (Get-FileHash $sys -Algorithm SHA256).Hash
+          Write-Host "  SHA256: $hash"
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: andun-driver
+          path: |
+            driver/andun.sys
+            driver/andun_driver/andun.inf
+          if-no-files-found: error
+          retention-days: 30
