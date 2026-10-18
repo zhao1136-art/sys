@@ -26,11 +26,15 @@ set WDK_FOUND=0
 REM 方式1: 使用 WDK 环境变量
 REM 注意：%WindowsSdkDir% 通常就是 C:\Program Files (x86)\Windows Kits\10\，
 REM       里面的 (x86) 括号会提前闭合 if 块 —— 必须用 set "VAR=值" 形式。
+REM 方式1: 使用 WDK 环境变量
+REM 注意：%WindowsSdkDir% 的值通常含 x86 括号段。在 if 块内展开它时，
+REM 那个右括号会提前闭合块，所以块内用到它的地方都必须加引号，set 与 echo 一样。
+REM 另外块内的 REM 注释也不要出现括号。
 if exist "%WindowsSdkDir%Include" (
     set "WDK_INC=%WindowsSdkDir%Include"
     set "WDK_LIB=%WindowsSdkDir%Lib"
     set WDK_FOUND=1
-    echo [御天驱动] 使用 WindowsSdkDir: %WindowsSdkDir%
+    echo [御天驱动] 使用 WindowsSdkDir: "%WindowsSdkDir%"
 )
 
 REM 方式2: 常见安装路径
