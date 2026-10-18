@@ -12,6 +12,12 @@
 
 #include <ntifs.h>
 #include "andun.h"
+/* 本环境下 ntifs.h 没导出 PROCESS_TERMINATE（进程访问权限位），按公开文档补定义。 */
+#ifndef PROCESS_TERMINATE
+#define PROCESS_TERMINATE 0x0001
+#endif
+
+
 
 /* 隔离文件扩展名标记 */
 #define ANDUN_QUARANTINE_EXT L".andunq"

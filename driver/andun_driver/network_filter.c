@@ -223,10 +223,10 @@ void NTAPI AndunNetworkClassify(
     }
 
     /* 4. 提取远程地址、远程端口 */
-    if (inFixedValues->numValues > fieldIdxIp) {
+    if (inFixedValues->valueCount > fieldIdxIp) {
         remoteIp = inFixedValues->incomingValue[fieldIdxIp].value.uint32;
     }
-    if (inFixedValues->numValues > fieldIdxPort) {
+    if (inFixedValues->valueCount > fieldIdxPort) {
         remotePort = inFixedValues->incomingValue[fieldIdxPort].value.uint16;
     }
 
@@ -485,7 +485,7 @@ NTSTATUS NetworkFilterInit(VOID)
     g_FilterIdV4Accept = (UINT32)tmpFilterId;
 
     /* 9. 提交事务 */
-    status = FwpmTransactionCommit0(g_EngineHandle, 0);
+    status = FwpmTransactionCommit0(g_EngineHandle);
     if (!NT_SUCCESS(status)) {
         DbgPrint("[御天驱动] FwpmTransactionCommit0 失败: 0x%08X\n", status);
         FwpmFilterDeleteById0(g_EngineHandle, (UINT64)g_FilterIdV4Accept);

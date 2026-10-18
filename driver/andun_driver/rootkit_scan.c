@@ -18,6 +18,25 @@
 
 #include <ntifs.h>
 #include "andun.h"
+/* ------------------------------------------------------------------
+ * 本环境的 ntifs.h 没有导出完整 LDR_DATA_TABLE_ENTRY 与 PsLoadedModuleList，
+ * 这里按公开文档布局自行声明（x64 偏移与文档一致）：
+ *   InLoadOrderLinks 0x00 / InMemoryOrderLinks 0x10 / InInitializationOrderLinks 0x20
+ *   DllBase 0x30 / EntryPoint 0x38 / SizeOfImage 0x40 / FullDllName 0x48 / BaseDllName 0x58
+ * ------------------------------------------------------------------ */
+typedef struct _ANDUN_LDR_DATA_TABLE_ENTRY {
+    LIST_ENTRY     InLoadOrderLinks;
+    LIST_ENTRY     InMemoryOrderLinks;
+    LIST_ENTRY     InInitializationOrderLinks;
+    PVOID          DllBase;
+    PVOID          EntryPoint;
+    ULONG          SizeOfImage;
+    UNICODE_STRING FullDllName;
+    UNICODE_STRING BaseDllName;
+} ANDUN_LDR_DATA_TABLE_ENTRY, *PANDUN_LDR_DATA_TABLE_ENTRY;
+
+extern PLIST_ENTRY PsLoadedModuleList;
+
 
 /* ============================================================
  * 内部全局：SSDT 关键函数名表（用于 Inline Hook 检测）
@@ -360,7 +379,7 @@ static ULONG AndunRootkitEnumDrivers(PANDUN_ROOTKIT_SCAN_RESULT Result)
         driverObj = NULL;
         __try {
             /* 通过 DriverObject 字段（InLoadOrderLinks 所在结构） */
-            PLDR_DATA_TABLE_ENTRY ldrEntry = (PLDR_DATA_TABLE_ENTRY)current;
+            PANDUN_LDR_DATA_TABLE_ENTRY ldrEntry = (PANDUN_LDR_DATA_TABLE_ENTRY)current;
             /* 用 DllBase 方式：偏移 0x30 读取，避免依赖未文档化字段 */
             PVOID dllBase = NULL;
             ULONG_PTR sizeOfImage = 0;
@@ -533,7 +552,7 @@ static BOOLEAN AndunAddressInDriverModule(
         }
 
         __try {
-            PLDR_DATA_TABLE_ENTRY ldrEntry = (PLDR_DATA_TABLE_ENTRY)current;
+            PANDUN_LDR_DATA_TABLE_ENTRY ldrEntry = (PANDUN_LDR_DATA_TABLE_ENTRY)current;
             ULONG_PTR base = (ULONG_PTR)ldrEntry->DllBase;
             ULONG_PTR size = (ULONG_PTR)ldrEntry->SizeOfImage;
 
