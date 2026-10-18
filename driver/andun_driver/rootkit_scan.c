@@ -13,7 +13,7 @@
  *     再包裹 __try/__except 双重保护；
  *   - 只读检测，绝不写入任何内核表（SSDT 受 PatchGuard 保护）；
  *   - 输出缓冲区固定大小，写满即停，防止越界；
- *   - 全程 PASSIVE_LEVEL，可安全调用 Zw*/Mm*/Ps* 接口。
+ *   - 全程 PASSIVE_LEVEL，可安全调用 Zw* / Mm* / Ps* 接口。
  */
 
 #include "andun.h"
