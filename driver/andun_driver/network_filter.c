@@ -249,7 +249,7 @@ void NTAPI AndunNetworkClassify(
     event.ppid       = 0;                       /* WFP 不提供父进程信息 */
     event.remotePort = remotePort;
     event.action     = action;
-    KeQuerySystemTime(&event.timestamp);
+    KeQuerySystemTimePrecise(&event.timestamp);
 
     /* 拷贝远程地址字符串到事件 */
     for (i = 0; i < 45 && ipStr[i] != L'\0'; i++) {

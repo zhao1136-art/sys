@@ -89,7 +89,7 @@ static VOID AndunFillRegistryEvent(ULONG EventType,
     event.eventType = EventType;
     event.pid = (ULONG)(ULONG_PTR)PsGetCurrentProcessId();
     event.action = Action;
-    KeQuerySystemTime(&event.timestamp);
+    KeQuerySystemTimePrecise(&event.timestamp);
 
     /* 拷贝键路径到事件 targetPath 字段（保证 NULL 结尾） */
     if (KeyPath != NULL && KeyPath->Buffer != NULL && KeyPath->Length > 0) {

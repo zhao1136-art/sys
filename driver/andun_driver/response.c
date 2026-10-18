@@ -12,6 +12,16 @@
 
 #include <ntifs.h>
 #include "andun.h"
+/* ZwRenameFile 不是内核导出，改名要走 ZwSetInformationFile。
+ * 下面是 FileRenameInformation 用的结构（wdm.h 里的 FILE_RENAME_INFORMATION
+ * 是变长结构，这里给文件名字段一个固定容量，够隔离目录用了）。 */
+typedef struct _FILE_RENAME_INFORMATION_ANDUN {
+    BOOLEAN ReplaceIfExists;
+    HANDLE  RootDirectory;
+    ULONG   FileNameLength;
+    WCHAR   FileName[520];
+} FILE_RENAME_INFORMATION_ANDUN;
+
 /* 本环境下 ntifs.h 没导出 PROCESS_TERMINATE（进程访问权限位），按公开文档补定义。 */
 #ifndef PROCESS_TERMINATE
 #define PROCESS_TERMINATE 0x0001
@@ -107,6 +117,11 @@ NTSTATUS ResponseQuarantineFile(PCWSTR FilePath, PCWSTR QuarantineDir)
     const WCHAR  *quarDir = QuarantineDir;
     ULONG         i;
     ULONG         lastSlash = 0;
+    HANDLE        hFile = NULL;
+    OBJECT_ATTRIBUTES oa;
+    IO_STATUS_BLOCK   iosb;
+    FILE_RENAME_INFORMATION_ANDUN rinfo;
+    NTSTATUS      status = STATUS_SUCCESS;
 
     if (FilePath == NULL || FilePath[0] == L'\0') {
         return STATUS_INVALID_PARAMETER;
@@ -127,13 +142,40 @@ NTSTATUS ResponseQuarantineFile(PCWSTR FilePath, PCWSTR QuarantineDir)
     fileName = &FilePath[lastSlash];
 
     /* 3. 构造目标路径：隔离目录\文件名.andunq */
-    swprintf_s(dst, 520, L"%s\\%s%s", quarDir, fileName, ANDUN_QUARANTINE_EXT);
+    RtlStringCchPrintfW(dst, 520, L"%s\\%s%s", quarDir, fileName, ANDUN_QUARANTINE_EXT);
 
     /* 4. 移动文件 */
     RtlInitUnicodeString(&srcPath, FilePath);
     RtlInitUnicodeString(&dstPath, dst);
 
-    return ZwRenameFile(&srcPath, &dstPath);
+    /* 打开源文件（需要 DELETE 权限才能改名） */
+    InitializeObjectAttributes(&oa, &srcPath,
+                               OBJ_KERNEL_HANDLE | OBJ_CASE_INSENSITIVE,
+                               NULL, NULL);
+    status = ZwOpenFile(&hFile, DELETE | SYNCHRONIZE, &oa, &iosb,
+                        FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
+                        FILE_SYNCHRONOUS_IO_NONALERT);
+    if (!NT_SUCCESS(status)) {
+        return status;
+    }
+
+    /* 目标路径长度检查（结构里的 FileName 是固定 520 宽字符） */
+    if (dstPath.Length > sizeof(rinfo.FileName)) {
+        ZwClose(hFile);
+        return STATUS_BUFFER_TOO_SMALL;
+    }
+
+    RtlZeroMemory(&rinfo, sizeof(rinfo));
+    rinfo.ReplaceIfExists = FALSE;
+    rinfo.RootDirectory = NULL;
+    rinfo.FileNameLength = dstPath.Length;
+    RtlCopyMemory(rinfo.FileName, dstPath.Buffer, dstPath.Length);
+
+    status = ZwSetInformationFile(hFile, &iosb, &rinfo, sizeof(rinfo),
+                                  FileRenameInformation);
+    ZwClose(hFile);
+    return status;
+
 }
 
 /* ============================================================

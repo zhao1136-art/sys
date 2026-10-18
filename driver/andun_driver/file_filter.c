@@ -374,7 +374,7 @@ static VOID AndunFillFileEvent(
 
     /* 时间戳：KeQuerySystemTime 返回系统时间（UTC） */
     now.QuadPart = 0;
-    KeQuerySystemTime(&now);
+    KeQuerySystemTimePrecise(&now);
     Event->timestamp = now;
 }
 

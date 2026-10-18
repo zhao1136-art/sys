@@ -61,7 +61,7 @@ static NTSTATUS SelfProtectPreloadRules(VOID)
         rule.ruleId = ANDUN_SELFPROTECT_RULE_BASE + 1;
         rule.ruleType = RuleTypeFile;
         rule.action = ActionBlock;
-        swprintf_s(rule.pattern, ANDUN_MAX_PATTERN_LEN,
+        RtlStringCchPrintfW(rule.pattern, ANDUN_MAX_PATTERN_LEN,
                    L"%s\\*", g_SelfProtectFile.install_dir);
         rule.enabled = 1;
         status = RuleEngineAddRule(&rule);
@@ -74,7 +74,7 @@ static NTSTATUS SelfProtectPreloadRules(VOID)
         rule.ruleId = ANDUN_SELFPROTECT_RULE_BASE + 2;
         rule.ruleType = RuleTypeFile;
         rule.action = ActionBlock;
-        swprintf_s(rule.pattern, ANDUN_MAX_PATTERN_LEN,
+        RtlStringCchPrintfW(rule.pattern, ANDUN_MAX_PATTERN_LEN,
                    L"%s\\*\\*", g_SelfProtectFile.install_dir);
         rule.enabled = 1;
         status = RuleEngineAddRule(&rule);

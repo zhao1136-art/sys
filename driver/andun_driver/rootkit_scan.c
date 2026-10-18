@@ -459,7 +459,7 @@ static ULONG AndunRootkitScanHooks(PANDUN_ROOTKIT_SCAN_RESULT Result)
         {
             UNICODE_STRING routineName;
             WCHAR fullName[300];
-            swprintf_s(fullName, 300, L"\\%hs", ANDUN_CRITICAL_NT_FUNCS[i]);
+            RtlStringCchPrintfW(fullName, 300, L"\\%hs", ANDUN_CRITICAL_NT_FUNCS[i]);
             RtlInitUnicodeString(&routineName, fullName);
             funcAddr = MmGetSystemRoutineAddress(&routineName);
         }
@@ -503,7 +503,7 @@ static ULONG AndunRootkitScanHooks(PANDUN_ROOTKIT_SCAN_RESULT Result)
         entry = &Result->hooks[count];
         RtlZeroMemory(entry, sizeof(ANDUN_ROOTKIT_HOOK_ENTRY));
         entry->hook_type = 2; /* Inline */
-        swprintf_s(entry->function_name, 128, L"%hs", ANDUN_CRITICAL_NT_FUNCS[i]);
+        RtlStringCchPrintfW(entry->function_name, 128, L"%hs", ANDUN_CRITICAL_NT_FUNCS[i]);
         entry->hook_address = (ULONG64)funcAddr;
         RtlCopyMemory(entry->original_bytes, prologue, 5);
         RtlCopyMemory(entry->current_bytes, prologue, 5);
@@ -623,7 +623,7 @@ static ULONG AndunRootkitScanCallbacks(PANDUN_ROOTKIT_SCAN_RESULT Result)
             /* 构造名称 */
             {
                 WCHAR fullName[300];
-                swprintf_s(fullName, 300, L"%hs", cbFuncs[i]);
+                RtlStringCchPrintfW(fullName, 300, L"%hs", cbFuncs[i]);
                 RtlInitUnicodeString(&name, fullName);
             }
             addr = MmGetSystemRoutineAddress(&name);

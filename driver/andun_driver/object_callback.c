@@ -241,7 +241,7 @@ static VOID AndunFillHandleEvent(ULONG TargetPid,
     event.ppid = TargetPid;
     event.remotePort = (USHORT)(StrippedAccess & 0xFFFF);
     event.action = Action;
-    KeQuerySystemTime(&event.timestamp);
+    KeQuerySystemTimePrecise(&event.timestamp);
 
     EventQueuePush(&event);
 }

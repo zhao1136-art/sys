@@ -304,7 +304,7 @@ static VOID AndunFillProcessEvent(
 
     /* 时间戳 */
     now.QuadPart = 0;
-    KeQuerySystemTime(&now);
+    KeQuerySystemTimePrecise(&now);
     Event->timestamp = now;
 }
 
