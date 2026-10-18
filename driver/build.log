@@ -11,15 +11,15 @@ Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35229 for x64
  Directory of C:\Program Files (x86)\Windows Kits\10\Include
 
 10/12/2026  10:43 PM    <DIR>          .
-10/18/2026  12:41 AM    <DIR>          ..
+10/18/2026  12:45 AM    <DIR>          ..
 10/12/2026  10:27 PM    <DIR>          10.0.10240.0
 10/12/2026  10:36 PM    <DIR>          10.0.17763.0
 10/12/2026  10:26 PM    <DIR>          10.0.19041.0
-10/18/2026  12:40 AM    <DIR>          10.0.22621.0
+10/18/2026  12:45 AM    <DIR>          10.0.22621.0
 10/12/2026  10:43 PM    <DIR>          10.0.26100.0
 10/12/2026  10:43 PM    <DIR>          wdf
                0 File(s)              0 bytes
-               8 Dir(s)  88,538,824,704 bytes free
+               8 Dir(s)  88,535,711,744 bytes free
  
 === 各版本 km 头文件是否存在 === 
   10.0.10240.0  km=no 
@@ -34,8 +34,6 @@ Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35229 for x64
 [御天驱动] 找到 WDK: 10.0.26100.0
 [御天驱动] 编译中...
 driver_main.c
-D:\a\sys\sys\driver\andun_driver\driver_main.c(56): error C2065: 'DriverUnload': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\driver_main.c(56): warning C4047: '=': 'PDRIVER_UNLOAD' differs in levels of indirection from 'int'
 device_control.c
 event_queue.c
 rule_engine.c
@@ -101,8 +99,6 @@ object_callback.c
 D:\a\sys\sys\driver\andun_driver\object_callback.c(142): warning C4133: 'function': incompatible types - from 'ULONG *' to 'ULONG64 *'
 D:\a\sys\sys\driver\andun_driver\object_callback.c(244): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
 D:\a\sys\sys\driver\andun_driver\object_callback.c(231): warning C4100: 'DesiredAccess': unreferenced parameter
-D:\a\sys\sys\driver\andun_driver\object_callback.c(377): error C2039: 'Context': is not a member of '_OB_CALLBACK_REGISTRATION'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\wdm.h(43511): note: see declaration of '_OB_CALLBACK_REGISTRATION'
 network_filter.c
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(7637): warning C4201: nonstandard extension used: nameless struct/union
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(7644): warning C4201: nonstandard extension used: nameless struct/union
