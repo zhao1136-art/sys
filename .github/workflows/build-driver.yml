@@ -143,7 +143,7 @@ jobs:
       # 日志接口又要 token，导致完全看不到编译报错，只能靠人肉抄。
       # 这里直接把 build.log 提交回仓库（带 [skip ci] 防止再次触发），
       # 之后 git pull 就能看到完整报错。
-      - name: 失败时提交编译日志
+      - name: 失败时回传编译日志
         if: failure()
         shell: pwsh
         run: |
@@ -154,13 +154,39 @@ jobs:
           }
           $sz = (Get-Item $log).Length
           Write-Host "build.log 大小: $sz 字节"
-          # 日志过大时只保留尾部（保留错误最集中的部分）
           if ($sz -gt 200000) {
             Get-Content $log -Tail 3000 | Set-Content $log -Encoding UTF8
             Write-Host "  已截断到尾部 3000 行"
           }
-          git config user.name  'ci-bot'
+
+          # 把错误行写进 job summary —— 这样在 run 页面上直接能看到，不用翻日志
+          $errs = Select-String -Path $log -Pattern 'error C|error LNK|fatal error|unexpected at this time' |
+                  Select-Object -First 50
+          $md = "## 编译错误（前 50 条）`n`n``````n"
+          if ($errs) { $md += (($errs | ForEach-Object { $_.Line.Trim() }) -join "`n") }
+          else { $md += "（日志里没有 error 字样）" }
+          $md += "`n``````n"
+          Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value $md
+
+          git config user.name 'ci-bot'
           git config user.email 'ci-bot@users.noreply.github.com'
           git add -f $log
-          git commit -m "ci: 编译失败日志 [skip ci]" 2>&1 | Out-Null
-          git push 2>&1 | ForEach-Object { Write-Host "  $_" }
+          # --allow-empty: 内容没变也不让提交失败
+          git commit -m "ci: 编译失败日志 [skip ci]" --allow-empty 2>&1 | Out-Null
+
+          # 关键：用 HEAD:main 推。checkout 出来可能是 detached HEAD，
+          # 直接 git push 会报 "not currently on a branch" —— 这大概就是
+          # 上一轮日志没回传的原因。
+          $pushed = $false
+          for ($i = 1; $i -le 3; $i++) {
+            $out = git push origin HEAD:main 2>&1
+            $out | ForEach-Object { Write-Host "  push[$i] $_" }
+            if ($LASTEXITCODE -eq 0) { $pushed = $true; break }
+            Write-Host "  push 被拒，fetch + rebase 后重试"
+            git fetch origin main 2>&1 | Out-Null
+            git rebase origin/main 2>&1 | ForEach-Object { Write-Host "  rebase $_" }
+            git add -f $log
+            git commit -m "ci: 编译失败日志 [skip ci]" --allow-empty 2>&1 | Out-Null
+            Start-Sleep -Seconds 3
+          }
+          if (-not $pushed) { Write-Host "::warning::日志回传失败，请从 job summary 或 artifact 取" }
