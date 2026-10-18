@@ -11,15 +11,15 @@ Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35229 for x64
  Directory of C:\Program Files (x86)\Windows Kits\10\Include
 
 10/12/2026  10:43 PM    <DIR>          .
-10/18/2026  12:45 AM    <DIR>          ..
+10/18/2026  12:49 AM    <DIR>          ..
 10/12/2026  10:27 PM    <DIR>          10.0.10240.0
 10/12/2026  10:36 PM    <DIR>          10.0.17763.0
 10/12/2026  10:26 PM    <DIR>          10.0.19041.0
-10/18/2026  12:45 AM    <DIR>          10.0.22621.0
+10/18/2026  12:49 AM    <DIR>          10.0.22621.0
 10/12/2026  10:43 PM    <DIR>          10.0.26100.0
 10/12/2026  10:43 PM    <DIR>          wdf
                0 File(s)              0 bytes
-               8 Dir(s)  88,535,711,744 bytes free
+               8 Dir(s)  88,252,809,216 bytes free
  
 === 各版本 km 头文件是否存在 === 
   10.0.10240.0  km=no 
@@ -100,301 +100,52 @@ D:\a\sys\sys\driver\andun_driver\object_callback.c(142): warning C4133: 'functio
 D:\a\sys\sys\driver\andun_driver\object_callback.c(244): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
 D:\a\sys\sys\driver\andun_driver\object_callback.c(231): warning C4100: 'DesiredAccess': unreferenced parameter
 network_filter.c
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(7637): warning C4201: nonstandard extension used: nameless struct/union
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(7644): warning C4201: nonstandard extension used: nameless struct/union
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(7649): warning C4201: nonstandard extension used: nameless struct/union
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(7657): warning C4201: nonstandard extension used: nameless struct/union
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(8976): warning C4201: nonstandard extension used: nameless struct/union
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(9013): warning C4201: nonstandard extension used: nameless struct/union
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis/nbl.h(146): warning C4324: '_NET_BUFFER_LIST_CONTEXT': structure was padded due to alignment specifier
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis/nbl.h(192): warning C4324: '_NET_BUFFER_LIST': structure was padded due to alignment specifier
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(6419): warning C4324: '_NDIS_NBL_MEDIA_MEDIA_SPECIFIC_INFORMATION': structure was padded due to alignment specifier
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(13600): warning C4324: '_CO_MEDIA_PARAMETERS': structure was padded due to alignment specifier
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2739): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2739): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2739): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2740): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2740): warning C4142: 'UINT32': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\basetsd.h(81): note: see declaration of 'UINT32'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2740): error C2370: 'UINT32': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\basetsd.h(81): note: see declaration of 'UINT32'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2740): error C2146: syntax error: missing ';' before identifier 'queryFlags'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2740): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2740): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2741): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2741): error C2371: 'FWPS_PACKET_LIST_INFORMATION0': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2733): note: see declaration of 'FWPS_PACKET_LIST_INFORMATION0'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2741): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2741): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2742): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2741): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2742): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2763): error C2146: syntax error: missing ')' before identifier 'netBufferList'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2763): error C2081: 'PNET_BUFFER_LIST': name in formal parameter list illegal
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2763): error C2061: syntax error: identifier 'netBufferList'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2763): error C2059: syntax error: ';'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2764): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2978): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2978): error C2081: 'NET_BUFFER_LIST': name in formal parameter list illegal
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2978): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2978): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2979): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2979): error C2371: 'BOOLEAN': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(1676): note: see declaration of 'BOOLEAN'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2979): error C2146: syntax error: missing ';' before identifier 'dispatchLevel'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2979): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2980): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2979): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2980): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2992): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2992): error C2081: 'NET_BUFFER_LIST': name in formal parameter list illegal
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2992): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2993): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2992): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2992): error C2040: 'netBufferList': 'int **' differs in levels of indirection from 'int *'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2993): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2999): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2999): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3000): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(2999): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3000): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3006): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3006): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3006): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3007): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3007): error C2040: 'NDIS_HANDLE': 'int' differs in levels of indirection from 'PVOID'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3007): error C2146: syntax error: missing ';' before identifier 'netBufferListPoolHandle'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3007): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3007): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3008): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3008): error C2040: 'NDIS_HANDLE': 'int' differs in levels of indirection from 'PVOID'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3008): error C2146: syntax error: missing ';' before identifier 'netBufferPoolHandle'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3008): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3008): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3009): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3009): warning C4142: 'ULONG': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3009): error C2370: 'ULONG': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3009): error C2146: syntax error: missing ';' before identifier 'allocateCloneFlags'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3009): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3009): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3010): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3010): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3010): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3011): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3010): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3010): error C2040: 'netBufferList': 'int **' differs in levels of indirection from 'int *'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3011): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3017): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3017): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3017): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3018): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3018): error C2040: 'NDIS_HANDLE': 'int' differs in levels of indirection from 'PVOID'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3018): error C2146: syntax error: missing ';' before identifier 'netBufferListPoolHandle'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3018): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3018): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3019): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3019): error C2040: 'NDIS_HANDLE': 'int' differs in levels of indirection from 'PVOID'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3019): error C2146: syntax error: missing ';' before identifier 'netBufferPoolHandle'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3019): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3019): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3020): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3020): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3020): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3021): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3020): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3020): error C2040: 'netBufferList': 'int **' differs in levels of indirection from 'int *'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3021): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3027): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3027): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3027): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3028): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3028): warning C4142: 'ULONG': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3028): error C2370: 'ULONG': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3028): error C2146: syntax error: missing ';' before identifier 'freeCloneFlags'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3028): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3029): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3028): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3029): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3038): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3038): error C2081: 'NET_BUFFER_LIST': name in formal parameter list illegal
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3038): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3038): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3039): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3039): error C2040: 'NDIS_HANDLE': 'int' differs in levels of indirection from 'PVOID'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3039): error C2146: syntax error: missing ';' before identifier 'netBufferAndNetBufferListPoolHandle'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3039): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3039): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3040): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3040): warning C4142: 'ULONG': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3040): error C2370: 'ULONG': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3040): error C2146: syntax error: missing ';' before identifier 'dataBackFill'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3040): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3040): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3041): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3041): warning C4142: 'ULONG': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3041): error C2370: 'ULONG': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3041): error C2146: syntax error: missing ';' before identifier 'flags'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3041): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3041): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3042): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3042): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3042): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3043): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3042): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3043): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3059): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3059): error C2081: 'NET_BUFFER_LIST': name in formal parameter list illegal
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3059): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3059): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3060): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3060): error C2146: syntax error: missing ';' before identifier 'completionFn'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3060): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3060): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3061): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3061): error C2040: 'HANDLE': 'int' differs in levels of indirection from 'void *'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3061): error C2146: syntax error: missing ';' before identifier 'completionContext'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3061): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3062): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3061): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3062): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3074): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3074): error C2081: 'NET_BUFFER_LIST': name in formal parameter list illegal
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3074): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3074): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3075): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3075): error C2146: syntax error: missing ';' before identifier 'completionFn'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3075): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3075): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3076): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3076): error C2040: 'HANDLE': 'int' differs in levels of indirection from 'void *'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3076): error C2146: syntax error: missing ';' before identifier 'completionContext'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3076): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3077): error C2059: syntax error: ')'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3076): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3077): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3091): error C2143: syntax error: missing ')' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3091): error C2143: syntax error: missing '{' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3091): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3092): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3092): warning C4142: 'ULONG': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3092): error C2370: 'ULONG': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3092): error C2146: syntax error: missing ';' before identifier 'headerIncludeHeaderLength'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3092): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3092): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3093): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3093): error C2371: 'ADDRESS_FAMILY': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ws2def.h(81): note: see declaration of 'ADDRESS_FAMILY'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3093): error C2146: syntax error: missing ';' before identifier 'addressFamily'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3093): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3093): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3094): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3094): error C2371: 'UCHAR': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(743): note: see declaration of 'UCHAR'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3094): warning C4228: nonstandard extension used: qualifiers after comma in declarator list are ignored
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3094): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3094): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3094): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3095): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3095): error C2371: 'UCHAR': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(743): note: see declaration of 'UCHAR'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3095): warning C4228: nonstandard extension used: qualifiers after comma in declarator list are ignored
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3095): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3095): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3095): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3096): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3096): error C2370: 'IPPROTO': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ws2def.h(502): note: see declaration of 'IPPROTO'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3096): error C2146: syntax error: missing ';' before identifier 'nextProtocol'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3096): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3096): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3097): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3097): error C2371: 'UINT64': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\basetsd.h(82): note: see declaration of 'UINT64'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3097): error C2146: syntax error: missing ';' before identifier 'endpointHandle'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3097): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3097): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3098): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3098): error C2371: 'WSACMSGHDR': redefinition; different basic types
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ws2def.h(737): note: see declaration of 'WSACMSGHDR'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3098): warning C4228: nonstandard extension used: qualifiers after comma in declarator list are ignored
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3098): error C2143: syntax error: missing ';' before '*'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3098): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3098): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3099): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3099): warning C4142: 'ULONG': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3099): error C2370: 'ULONG': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ntdef.h(745): note: see declaration of 'ULONG'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3099): error C2146: syntax error: missing ';' before identifier 'controlDataLength'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3099): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3099): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3100): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3100): warning C4142: 'UINT32': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\basetsd.h(81): note: see declaration of 'UINT32'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3100): error C2370: 'UINT32': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\basetsd.h(81): note: see declaration of 'UINT32'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3100): error C2146: syntax error: missing ';' before identifier 'flags'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3100): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3100): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3101): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3101): error C2040: 'PVOID': 'int' differs in levels of indirection from 'void *'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3101): error C2146: syntax error: missing ';' before identifier 'reserved'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3101): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3101): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3102): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3102): warning C4142: 'IF_INDEX': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ifdef.h(173): note: see declaration of 'IF_INDEX'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3102): error C2370: 'IF_INDEX': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ifdef.h(173): note: see declaration of 'IF_INDEX'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3102): error C2146: syntax error: missing ';' before identifier 'interfaceIndex'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3102): warning C4218: nonstandard extension used: must specify at least a storage class or a type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3102): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3103): warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3103): warning C4142: 'IF_INDEX': benign redefinition of type
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ifdef.h(173): note: see declaration of 'IF_INDEX'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3103): error C2370: 'IF_INDEX': redefinition; different storage class
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\ifdef.h(173): note: see declaration of 'IF_INDEX'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\fwpsk.h(3103): fatal error C1003: error count exceeds 100; stopping compilation
+D:\a\sys\sys\driver\andun_driver\network_filter.c(226): error C2039: 'numValues': is not a member of 'FWPS_INCOMING_VALUES0_'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\fwpstypes.h(160): note: see declaration of 'FWPS_INCOMING_VALUES0_'
+D:\a\sys\sys\driver\andun_driver\network_filter.c(229): error C2039: 'numValues': is not a member of 'FWPS_INCOMING_VALUES0_'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\fwpstypes.h(160): note: see declaration of 'FWPS_INCOMING_VALUES0_'
+D:\a\sys\sys\driver\andun_driver\network_filter.c(252): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
+D:\a\sys\sys\driver\andun_driver\network_filter.c(379): warning C4113: 'void (__cdecl *)(const FWPS_INCOMING_VALUES0 *,const FWPS_INCOMING_METADATA_VALUES0 *,void *,const void *,const FWPS_FILTER0 *,UINT64,FWPS_CLASSIFY_OUT0 *)' differs in parameter lists from 'FWPS_CALLOUT_CLASSIFY_FN0'
+D:\a\sys\sys\driver\andun_driver\network_filter.c(386): warning C4133: 'function': incompatible types - from 'UINT16 *' to 'UINT32 *'
+D:\a\sys\sys\driver\andun_driver\network_filter.c(410): warning C4133: 'function': incompatible types - from 'UINT16 *' to 'UINT32 *'
+D:\a\sys\sys\driver\andun_driver\network_filter.c(488): error C2197: 'NTSTATUS FwpmTransactionCommit0(HANDLE)': too many arguments for call
 response.c
-D:\a\sys\sys\driver\andun_driver\response.c(57): error C2065: 'PROCESS_TERMINATE': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\response.c(129): warning C4013: 'ZwRenameFile' undefined; assuming extern returning int
+D:\a\sys\sys\driver\andun_driver\response.c(58): error C2065: 'PROCESS_TERMINATE': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\response.c(130): warning C4013: 'ZwRenameFile' undefined; assuming extern returning int
 rootkit_scan.c
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(267): warning C4013: 'PsGetProcessImageFileName' undefined; assuming extern returning int
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(267): warning C4047: '=': 'PCSTR' differs in levels of indirection from 'int'
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(338): error C2065: 'PsLoadedModuleList': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(338): warning C4047: '=': 'PLIST_ENTRY' differs in levels of indirection from 'int'
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(362): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(362): error C2146: syntax error: missing ';' before identifier 'ldrEntry'
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(362): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(362): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(362): error C2146: syntax error: missing ';' before identifier 'current'
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(369): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(369): error C2223: left of '->DllBase' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(268): warning C4013: 'PsGetProcessImageFileName' undefined; assuming extern returning int
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(268): warning C4047: '=': 'PCSTR' differs in levels of indirection from 'int'
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(339): error C2065: 'PsLoadedModuleList': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(339): warning C4047: '=': 'PLIST_ENTRY' differs in levels of indirection from 'int'
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(363): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(363): error C2146: syntax error: missing ';' before identifier 'ldrEntry'
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(363): error C2065: 'ldrEntry': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(363): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(363): error C2146: syntax error: missing ';' before identifier 'current'
 D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(370): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(370): error C2223: left of '->SizeOfImage' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(370): error C2223: left of '->DllBase' must point to struct/union
 D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(371): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(371): error C2223: left of '->BaseDllName' must point to struct/union
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(518): error C2065: 'PsLoadedModuleList': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(518): warning C4047: '=': 'PLIST_ENTRY' differs in levels of indirection from 'int'
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(535): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(535): error C2146: syntax error: missing ';' before identifier 'ldrEntry'
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(535): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(535): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(535): error C2146: syntax error: missing ';' before identifier 'current'
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(371): error C2223: left of '->SizeOfImage' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(372): error C2065: 'ldrEntry': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(372): error C2223: left of '->BaseDllName' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(519): error C2065: 'PsLoadedModuleList': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(519): warning C4047: '=': 'PLIST_ENTRY' differs in levels of indirection from 'int'
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(536): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(536): error C2146: syntax error: missing ';' before identifier 'ldrEntry'
 D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(536): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(536): error C2223: left of '->DllBase' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(536): error C2065: 'PLDR_DATA_TABLE_ENTRY': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(536): error C2146: syntax error: missing ';' before identifier 'current'
 D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(537): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(537): error C2223: left of '->SizeOfImage' must point to struct/union
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(544): error C2065: 'ldrEntry': undeclared identifier
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(544): error C2223: left of '->BaseDllName' must point to struct/union
-D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(543): error C2198: 'BOOLEAN AndunCopyUnicodeToString(PWSTR,ULONG,PUNICODE_STRING)': too few arguments for call
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(537): error C2223: left of '->DllBase' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(538): error C2065: 'ldrEntry': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(538): error C2223: left of '->SizeOfImage' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(545): error C2065: 'ldrEntry': undeclared identifier
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(545): error C2223: left of '->BaseDllName' must point to struct/union
+D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(544): error C2198: 'BOOLEAN AndunCopyUnicodeToString(PWSTR,ULONG,PUNICODE_STRING)': too few arguments for call
 self_protect.c
 Generating Code...
 [御天驱动] 编译失败
