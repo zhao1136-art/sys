@@ -11,15 +11,15 @@ Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35229 for x64
  Directory of C:\Program Files (x86)\Windows Kits\10\Include
 
 10/12/2026  10:43 PM    <DIR>          .
-10/18/2026  12:08 AM    <DIR>          ..
+10/18/2026  12:12 AM    <DIR>          ..
 10/12/2026  10:27 PM    <DIR>          10.0.10240.0
 10/12/2026  10:36 PM    <DIR>          10.0.17763.0
 10/12/2026  10:26 PM    <DIR>          10.0.19041.0
-10/18/2026  12:08 AM    <DIR>          10.0.22621.0
+10/18/2026  12:12 AM    <DIR>          10.0.22621.0
 10/12/2026  10:43 PM    <DIR>          10.0.26100.0
 10/12/2026  10:43 PM    <DIR>          wdf
                0 File(s)              0 bytes
-               8 Dir(s)  88,253,845,504 bytes free
+               8 Dir(s)  88,255,565,824 bytes free
  
 === 各版本 km 头文件是否存在 === 
   10.0.10240.0  km=no 
