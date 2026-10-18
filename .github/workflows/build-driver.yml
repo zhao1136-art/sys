@@ -112,8 +112,11 @@ jobs:
           powershell -NoProfile -Command "Get-Content build.log -Tail 150"
           echo.
           echo === 编译错误汇总 ===
-          powershell -NoProfile -Command "$e = Select-String -Path build.log -Pattern 'error|错误|unexpected' -CaseSensitive:$false; if ($e) { $e | Select-Object -First 60 | ForEach-Object { Write-Host ('  ' + $_.Line) } } else { Write-Host '  （日志里没有 error 字样）' }"
+          powershell -NoProfile -Command "$e = Select-String -Path build.log -Pattern 'error C|error LNK|fatal error|unexpected' -CaseSensitive:$false; if ($e) { $e | Select-Object -First 60 | ForEach-Object { Write-Host ('  ' + $_.Line) } } else { Write-Host '  （日志里没有 error 字样）' }"
           echo.
+          REM 把每条错误发成 GitHub annotation —— 会汇总在 run 页面顶部的
+          REM Annotations 区，方便整块复制，不用翻长日志。
+          powershell -NoProfile -Command "$e = Select-String -Path build.log -Pattern 'error C\d+|fatal error C\d+|error LNK\d+' | Select-Object -First 25; foreach ($x in $e) { $ln = $x.Line.Trim(); if ($ln.Length -gt 240) { $ln = $ln.Substring(0,240) }; Write-Host ('::error::' + $ln) }"
           if not %RC%==0 (
             echo ::error::驱动编译失败，exit %RC%
             exit /b 1
