@@ -15,6 +15,7 @@
  * ============================================================ */
 
 static NTSTATUS AndunDispatchCreateClose(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+VOID DriverUnload(PDRIVER_OBJECT DriverObject);
 
 /* ============================================================
  * DriverEntry - 驱动入口函数

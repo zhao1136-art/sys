@@ -374,7 +374,7 @@ NTSTATUS ObjectCallbackInit(PDRIVER_OBJECT DriverObject)
     g_ObCallbackReg.OperationRegistrationCount = 2;
     RtlInitUnicodeString(&altitude, L"321000");
     g_ObCallbackReg.Altitude = altitude;
-    g_ObCallbackReg.Context = NULL;
+    g_ObCallbackReg.RegistrationContext = NULL;
     g_ObCallbackReg.OperationRegistration = g_ObOps;
 
     /* 4. 注册回调 */

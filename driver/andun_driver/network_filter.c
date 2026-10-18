@@ -17,6 +17,9 @@
  */
 
 #include "andun.h"
+/* WDM 驱动包含 ndis.h 前必须先定义 NDIS_WDM，否则 NDIS 类型（NET_BUFFER_LIST / NDIS_HANDLE 等）不会被定义，
+ * 导致 fwpsk.h 里大量 "未定义/重定义" 语法错误。 */
+#define NDIS_WDM 1
 #include <ndis.h>
 #include <fwpsk.h>
 #include <fwpmk.h>
