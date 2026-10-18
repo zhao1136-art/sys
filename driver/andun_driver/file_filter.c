@@ -15,6 +15,7 @@
  *   - 可能异常的操作使用 __try / __except 包裹
  */
 
+#include <fltKernel.h>
 #include "andun.h"
 
 /* g_Config 在 device_control.c 中定义，andun.h 中已 extern 声明 */

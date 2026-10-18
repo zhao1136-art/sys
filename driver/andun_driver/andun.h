@@ -8,10 +8,17 @@
 #pragma once
 
 #include <ntddk.h>
-#include <fltKernel.h>
-#include <fwpsk.h>
-#include <fwpmk.h>
 #include <ntstrsafe.h>
+
+/*
+ * 框架头不放在这里，按文件加载：
+ *   file_filter.c    -> <fltKernel.h>（minifilter，内部含 ntifs.h）
+ *   network_filter.c -> <ndis.h> + <fwpsk.h> + <fwpmk.h>（WFP 依赖 NDIS 类型）
+ *
+ * 原因：fltKernel.h 与 ndis.h/fwpsk.h 放同一编译单元会冲突——
+ *   ntifs.h 报 PEPROCESS/PETHREAD redefinition，
+ *   fwpsk.h 报 netBufferList（NET_BUFFER_LIST 需要 NDIS）语法错误。
+ */
 
 /* ============================================================
  * 常量定义

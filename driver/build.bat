@@ -92,7 +92,7 @@ REM ↑ 原先只列了 9 个，漏了 response.c / rootkit_scan.c / self_protec
 REM   （andun_driver\ 下实际有 12 个 .c）。漏掉的文件如果被其它模块引用，
 REM   链接阶段会报 unresolved external symbol。
 
-set LIBS=ntoskrnl.lib hal.lib fltMgr.lib wdm.lib fwpkclnt.lib uuid.lib
+set LIBS=ntoskrnl.lib hal.lib fltMgr.lib wdm.lib fwpkclnt.lib ndis.lib uuid.lib
 
 set LDFLAGS=/nologo /SUBSYSTEM:NATIVE /DRIVER /ENTRY:DriverEntry /MACHINE:X64 /NODEFAULTLIB
 

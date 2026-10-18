@@ -17,6 +17,10 @@
  */
 
 #include "andun.h"
+#include <ndis.h>
+#include <fwpsk.h>
+#include <fwpmk.h>
+
 
 /* ============================================================
  * 全局变量
