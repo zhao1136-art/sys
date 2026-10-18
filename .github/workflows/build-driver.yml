@@ -92,19 +92,27 @@ jobs:
         shell: cmd
         run: |
           cd /d "%GITHUB_WORKSPACE%\driver"
-          echo === 工具链确认 ===
-          where cl
-          where link
-          cl 2>&1 | findstr /i "version"
-          echo.
-          echo === 开始编译 ===
-          call build.bat release > build.log 2>&1
+          echo === 工具链确认 === > build.log
+          where cl >> build.log 2>&1
+          where link >> build.log 2>&1
+          cl 2>&1 | findstr /i "version" >> build.log
+          echo. >> build.log
+          echo === Windows Kits Include 目录 === >> build.log
+          dir "C:\Program Files (x86)\Windows Kits\10\Include" >> build.log 2>&1
+          echo. >> build.log
+          echo === 各版本 km 头文件是否存在 === >> build.log
+          for /d %%D in ("C:\Program Files (x86)\Windows Kits\10\Include\*") do (
+            if exist "%%D\km" (echo   %%~nxD  km=YES >> build.log) else (echo   %%~nxD  km=no >> build.log)
+          )
+          echo. >> build.log
+          echo === 开始编译 === >> build.log
+          call build.bat release >> build.log 2>&1
           set RC=%errorlevel%
-          echo === 完整日志（尾部 120 行）===
-          powershell -NoProfile -Command "Get-Content build.log -Tail 120"
+          echo === 完整日志（尾部 150 行）===
+          powershell -NoProfile -Command "Get-Content build.log -Tail 150"
           echo.
           echo === 编译错误汇总 ===
-          powershell -NoProfile -Command "$e = Select-String -Path build.log -Pattern 'error|错误' -CaseSensitive:$false; if ($e) { $e | Select-Object -First 60 | ForEach-Object { Write-Host ('  ' + $_.Line) } } else { Write-Host '  （日志里没有 error 字样）' }"
+          powershell -NoProfile -Command "$e = Select-String -Path build.log -Pattern 'error|错误|unexpected' -CaseSensitive:$false; if ($e) { $e | Select-Object -First 60 | ForEach-Object { Write-Host ('  ' + $_.Line) } } else { Write-Host '  （日志里没有 error 字样）' }"
           echo.
           if not %RC%==0 (
             echo ::error::驱动编译失败，exit %RC%

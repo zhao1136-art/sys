@@ -24,9 +24,11 @@ REM --- 查找 WDK ---
 set WDK_FOUND=0
 
 REM 方式1: 使用 WDK 环境变量
+REM 注意：%WindowsSdkDir% 通常就是 C:\Program Files (x86)\Windows Kits\10\，
+REM       里面的 (x86) 括号会提前闭合 if 块 —— 必须用 set "VAR=值" 形式。
 if exist "%WindowsSdkDir%Include" (
-    set WDK_INC=%WindowsSdkDir%Include
-    set WDK_LIB=%WindowsSdkDir%Lib
+    set "WDK_INC=%WindowsSdkDir%Include"
+    set "WDK_LIB=%WindowsSdkDir%Lib"
     set WDK_FOUND=1
     echo [御天驱动] 使用 WindowsSdkDir: %WindowsSdkDir%
 )
@@ -35,8 +37,12 @@ REM 方式2: 常见安装路径
 if "!WDK_FOUND!"=="0" (
     for %%V in (10.0.22621.0 10.0.22000.0 10.0.20348.0 10.0.19041.0 10.0.18362.0) do (
         if exist "C:\Program Files (x86)\Windows Kits\10\Include\%%V\km" (
-            set WDK_INC=C:\Program Files (x86)\Windows Kits\10\Include\%%V
-            set WDK_LIB=C:\Program Files (x86)\Windows Kits\10\Lib\%%V
+            REM set 的值里含 (x86) —— 那个右括号会把外层 if/for 块提前闭合，
+            REM 剩下的 \Windows Kits\... 变成孤立命令，报
+            REM "\Windows was unexpected at this time."（CI 第一次就栽在这）
+            REM 所以必须用 set "VAR=值" 这种带引号的形式。
+            set "WDK_INC=C:\Program Files (x86)\Windows Kits\10\Include\%%V"
+            set "WDK_LIB=C:\Program Files (x86)\Windows Kits\10\Lib\%%V"
             set WDK_FOUND=1
             echo [御天驱动] 找到 WDK: %%V
             goto :wdk_found
