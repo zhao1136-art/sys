@@ -34,13 +34,14 @@ if exist "%WindowsSdkDir%Include" (
 )
 
 REM 方式2: 常见安装路径
+REM
+REM 【重要】set 的值里含 x86 括号时，必须写成 set "VAR=值" 的带引号形式。
+REM 不加引号的话，那个右括号会提前闭合外层 if/for 块，剩下的
+REM "Windows Kits\..." 变成孤立命令，报 "\Windows was unexpected at this time."
+REM 同理：这个块内的 REM 注释也不能出现括号，否则一样会闭合块。
 if "!WDK_FOUND!"=="0" (
     for %%V in (10.0.22621.0 10.0.22000.0 10.0.20348.0 10.0.19041.0 10.0.18362.0) do (
         if exist "C:\Program Files (x86)\Windows Kits\10\Include\%%V\km" (
-            REM set 的值里含 (x86) —— 那个右括号会把外层 if/for 块提前闭合，
-            REM 剩下的 \Windows Kits\... 变成孤立命令，报
-            REM "\Windows was unexpected at this time."（CI 第一次就栽在这）
-            REM 所以必须用 set "VAR=值" 这种带引号的形式。
             set "WDK_INC=C:\Program Files (x86)\Windows Kits\10\Include\%%V"
             set "WDK_LIB=C:\Program Files (x86)\Windows Kits\10\Lib\%%V"
             set WDK_FOUND=1
