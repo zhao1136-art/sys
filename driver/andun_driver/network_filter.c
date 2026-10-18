@@ -20,6 +20,10 @@
 /* WDM 驱动包含 ndis.h 前必须先定义 NDIS_WDM，否则 NDIS 类型（NET_BUFFER_LIST / NDIS_HANDLE 等）不会被定义，
  * 导致 fwpsk.h 里大量 "未定义/重定义" 语法错误。 */
 #define NDIS_WDM 1
+/* NDIS version must also be defined. ndis.h only exports NDIS6 types (NET_BUFFER_LIST, NDIS_HANDLE, ...)
+ * when an NDIS6x version macro is set; otherwise it falls back to NDIS 5.1 and fwpsk.h reports them undefined
+ * (which then cascades into the UINT32 / BOOLEAN redefinition errors). */
+#define NDIS630 1
 #include <ndis.h>
 #include <fwpsk.h>
 #include <fwpmk.h>
