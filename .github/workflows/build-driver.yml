@@ -24,6 +24,8 @@ jobs:
   build-driver:
     runs-on: windows-2022
     timeout-minutes: 40
+    permissions:
+      contents: write        # 失败时要把 build.log 提交回仓库
 
     steps:
       - name: 检出代码
@@ -80,14 +82,32 @@ jobs:
 
       - name: 配置 MSVC 环境
         uses: ilammy/msvc-dev-cmd@v1
+        with:
+          # 必须显式指定 x64。这个 action 默认是 x86 工具链，
+          # 而内核驱动要 /MACHINE:X64 —— 用 x86 的 cl 编 x64 驱动会出各种怪问题
+          # （包括不报明确错误、只返回 255 这种）。
+          arch: x64
 
       - name: 编译驱动
         shell: cmd
         run: |
           cd /d "%GITHUB_WORKSPACE%\driver"
-          call build.bat release
-          if errorlevel 1 (
-            echo ::error::驱动编译失败，见上方 cl.exe / link.exe 的输出
+          echo === 工具链确认 ===
+          where cl
+          where link
+          cl 2>&1 | findstr /i "version"
+          echo.
+          echo === 开始编译 ===
+          call build.bat release > build.log 2>&1
+          set RC=%errorlevel%
+          echo === 完整日志（尾部 120 行）===
+          powershell -NoProfile -Command "Get-Content build.log -Tail 120"
+          echo.
+          echo === 编译错误汇总 ===
+          powershell -NoProfile -Command "$e = Select-String -Path build.log -Pattern 'error|错误' -CaseSensitive:$false; if ($e) { $e | Select-Object -First 60 | ForEach-Object { Write-Host ('  ' + $_.Line) } } else { Write-Host '  （日志里没有 error 字样）' }"
+          echo.
+          if not %RC%==0 (
+            echo ::error::驱动编译失败，exit %RC%
             exit /b 1
           )
 
@@ -109,3 +129,30 @@ jobs:
             driver/andun_driver/andun.inf
           if-no-files-found: error
           retention-days: 30
+
+      # 以下两步只在失败时跑。
+      # 目的是让日志「活下来」—— 之前 CI 失败后，GitHub API 匿名配额用完（403）、
+      # 日志接口又要 token，导致完全看不到编译报错，只能靠人肉抄。
+      # 这里直接把 build.log 提交回仓库（带 [skip ci] 防止再次触发），
+      # 之后 git pull 就能看到完整报错。
+      - name: 失败时提交编译日志
+        if: failure()
+        shell: pwsh
+        run: |
+          $log = 'driver/build.log'
+          if (-not (Test-Path $log)) {
+            Write-Host "没有 build.log，跳过"
+            exit 0
+          }
+          $sz = (Get-Item $log).Length
+          Write-Host "build.log 大小: $sz 字节"
+          # 日志过大时只保留尾部（保留错误最集中的部分）
+          if ($sz -gt 200000) {
+            Get-Content $log -Tail 3000 | Set-Content $log -Encoding UTF8
+            Write-Host "  已截断到尾部 3000 行"
+          }
+          git config user.name  'ci-bot'
+          git config user.email 'ci-bot@users.noreply.github.com'
+          git add -f $log
+          git commit -m "ci: 编译失败日志 [skip ci]" 2>&1 | Out-Null
+          git push 2>&1 | ForEach-Object { Write-Host "  $_" }

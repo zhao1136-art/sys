@@ -11,7 +11,6 @@
 #include <fltKernel.h>
 #include <fwpsk.h>
 #include <fwpmk.h>
-#include <ndis.h>
 #include <ntstrsafe.h>
 
 /* ============================================================
