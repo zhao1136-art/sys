@@ -8,6 +8,10 @@
 #pragma once
 
 #include <ntddk.h>
+/* ntstrsafe.h 默认用内联实现，RtlStringCchPrintfW 内部会调 UCRT 的 vswprintf，
+ * 内核里没有 __stdio_common_vswprintf 这个符号，链接会失败。
+ * 定义 NTSTRSAFE_LIB 改用库版本（ntstrsafe.lib，WDK 自带的正式实现）。 */
+#define NTSTRSAFE_LIB
 #include <ntstrsafe.h>
 
 /*
