@@ -11,15 +11,15 @@ Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35229 for x64
  Directory of C:\Program Files (x86)\Windows Kits\10\Include
 
 10/12/2026  10:43 PM    <DIR>          .
-10/18/2026  12:57 AM    <DIR>          ..
+10/18/2026  01:02 AM    <DIR>          ..
 10/12/2026  10:27 PM    <DIR>          10.0.10240.0
 10/12/2026  10:36 PM    <DIR>          10.0.17763.0
 10/12/2026  10:26 PM    <DIR>          10.0.19041.0
-10/18/2026  12:57 AM    <DIR>          10.0.22621.0
+10/18/2026  01:02 AM    <DIR>          10.0.22621.0
 10/12/2026  10:43 PM    <DIR>          10.0.26100.0
 10/12/2026  10:43 PM    <DIR>          wdf
                0 File(s)              0 bytes
-               8 Dir(s)  88,537,726,976 bytes free
+               8 Dir(s)  87,455,387,648 bytes free
  
 === 各版本 km 头文件是否存在 === 
   10.0.10240.0  km=no 
@@ -90,61 +90,31 @@ D:\a\sys\sys\driver\andun_driver\file_filter.c(80): warning C4090: 'function': d
 D:\a\sys\sys\driver\andun_driver\file_filter.c(80): warning C4113: 'FLT_PREOP_CALLBACK_STATUS (__cdecl *)(PFLT_CALLBACK_DATA,PFLT_RELATED_OBJECTS,PVOID *)' differs in parameter lists from 'PFLT_PRE_OPERATION_CALLBACK'
 D:\a\sys\sys\driver\andun_driver\file_filter.c(364): warning C4013: 'PsGetProcessImageFileName' undefined; assuming extern returning int
 D:\a\sys\sys\driver\andun_driver\file_filter.c(364): warning C4047: '=': 'PCSTR' differs in levels of indirection from 'int'
-D:\a\sys\sys\driver\andun_driver\file_filter.c(377): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
 process_callback.c
-D:\a\sys\sys\driver\andun_driver\process_callback.c(307): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
 registry_callback.c
-D:\a\sys\sys\driver\andun_driver\registry_callback.c(92): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
+D:\a\sys\sys\driver\andun_driver\registry_callback.c(92): warning C4366: The result of the unary '&' operator may be unaligned
 object_callback.c
 D:\a\sys\sys\driver\andun_driver\object_callback.c(142): warning C4133: 'function': incompatible types - from 'ULONG *' to 'ULONG64 *'
-D:\a\sys\sys\driver\andun_driver\object_callback.c(244): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
+D:\a\sys\sys\driver\andun_driver\object_callback.c(244): warning C4366: The result of the unary '&' operator may be unaligned
 D:\a\sys\sys\driver\andun_driver\object_callback.c(231): warning C4100: 'DesiredAccess': unreferenced parameter
 network_filter.c
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis/nbl.h(146): warning C4324: '_NET_BUFFER_LIST_CONTEXT': structure was padded due to alignment specifier
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis/nbl.h(192): warning C4324: '_NET_BUFFER_LIST': structure was padded due to alignment specifier
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(6419): warning C4324: '_NDIS_NBL_MEDIA_MEDIA_SPECIFIC_INFORMATION': structure was padded due to alignment specifier
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\ndis.h(13600): warning C4324: '_CO_MEDIA_PARAMETERS': structure was padded due to alignment specifier
-D:\a\sys\sys\driver\andun_driver\network_filter.c(252): warning C4013: 'KeQuerySystemTime' undefined; assuming extern returning int
+D:\a\sys\sys\driver\andun_driver\network_filter.c(252): warning C4366: The result of the unary '&' operator may be unaligned
 D:\a\sys\sys\driver\andun_driver\network_filter.c(379): warning C4113: 'void (__cdecl *)(const FWPS_INCOMING_VALUES0 *,const FWPS_INCOMING_METADATA_VALUES0 *,void *,const void *,const FWPS_FILTER0 *,UINT64,FWPS_CLASSIFY_OUT0 *)' differs in parameter lists from 'FWPS_CALLOUT_CLASSIFY_FN0'
 D:\a\sys\sys\driver\andun_driver\network_filter.c(386): warning C4133: 'function': incompatible types - from 'UINT16 *' to 'UINT32 *'
 D:\a\sys\sys\driver\andun_driver\network_filter.c(410): warning C4133: 'function': incompatible types - from 'UINT16 *' to 'UINT32 *'
 response.c
-D:\a\sys\sys\driver\andun_driver\response.c(136): warning C4013: 'ZwRenameFile' undefined; assuming extern returning int
 rootkit_scan.c
 D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(287): warning C4013: 'PsGetProcessImageFileName' undefined; assuming extern returning int
 D:\a\sys\sys\driver\andun_driver\rootkit_scan.c(287): warning C4047: '=': 'PCSTR' differs in levels of indirection from 'int'
 self_protect.c
 Generating Code...
 [御天驱动] 链接中...
-registry_callback.obj : error LNK2001: unresolved external symbol KeQuerySystemTime
-file_filter.obj : error LNK2001: unresolved external symbol KeQuerySystemTime
-network_filter.obj : error LNK2001: unresolved external symbol KeQuerySystemTime
-object_callback.obj : error LNK2001: unresolved external symbol KeQuerySystemTime
-process_callback.obj : error LNK2001: unresolved external symbol KeQuerySystemTime
-self_protect.obj : error LNK2001: unresolved external symbol __security_check_cookie
-ntoskrnl.lib(gshandler.obj) : error LNK2001: unresolved external symbol __security_check_cookie
-registry_callback.obj : error LNK2001: unresolved external symbol __security_check_cookie
-response.obj : error LNK2001: unresolved external symbol __security_check_cookie
-rootkit_scan.obj : error LNK2001: unresolved external symbol __security_check_cookie
-rule_engine.obj : error LNK2001: unresolved external symbol __security_check_cookie
-file_filter.obj : error LNK2001: unresolved external symbol __security_check_cookie
-network_filter.obj : error LNK2001: unresolved external symbol __security_check_cookie
-object_callback.obj : error LNK2001: unresolved external symbol __security_check_cookie
-process_callback.obj : error LNK2001: unresolved external symbol __security_check_cookie
-self_protect.obj : error LNK2019: unresolved external symbol __security_cookie referenced in function SelfProtectPreloadRules
-registry_callback.obj : error LNK2001: unresolved external symbol __security_cookie
-response.obj : error LNK2001: unresolved external symbol __security_cookie
-rootkit_scan.obj : error LNK2001: unresolved external symbol __security_cookie
-rule_engine.obj : error LNK2001: unresolved external symbol __security_cookie
-file_filter.obj : error LNK2001: unresolved external symbol __security_cookie
-network_filter.obj : error LNK2001: unresolved external symbol __security_cookie
-object_callback.obj : error LNK2001: unresolved external symbol __security_cookie
-process_callback.obj : error LNK2001: unresolved external symbol __security_cookie
-process_callback.obj : error LNK2019: unresolved external symbol __report_rangecheckfailure referenced in function AndunIsSelfProcess
-rule_engine.obj : error LNK2001: unresolved external symbol __report_rangecheckfailure
-response.obj : error LNK2019: unresolved external symbol __stdio_common_vswprintf_s referenced in function _vswprintf_s_l
-rootkit_scan.obj : error LNK2001: unresolved external symbol __stdio_common_vswprintf_s
-self_protect.obj : error LNK2001: unresolved external symbol __stdio_common_vswprintf_s
-response.obj : error LNK2019: unresolved external symbol ZwRenameFile referenced in function ResponseQuarantineFile
-D:\a\sys\sys\driver\andun.sys : fatal error LNK1120: 6 unresolved externals
+response.obj : error LNK2019: unresolved external symbol __stdio_common_vswprintf referenced in function RtlStringCchPrintfW
+rootkit_scan.obj : error LNK2001: unresolved external symbol __stdio_common_vswprintf
+self_protect.obj : error LNK2001: unresolved external symbol __stdio_common_vswprintf
+D:\a\sys\sys\driver\andun.sys : fatal error LNK1120: 1 unresolved externals
 [御天驱动] 链接失败
