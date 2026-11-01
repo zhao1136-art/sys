@@ -104,6 +104,16 @@ install_driver.bat status
    - 或 **WHQL 认证**（跑 HLK 测试）
 3. 每个驱动版本都要重新提交，且要承担蓝屏责任
 
+## 文章
+
+这篇仓库配套的技术文章（约 1 万字），记录了从 0 到编出 `andun.sys` 的完整过程，含 16 个真实踩过的坑：
+
+- [用 GitHub Actions 免费编译 Windows 内核驱动](docs/building-kernel-driver-with-github-actions.md) —— 不装 WDK、不买证书，从 0 到 `andun.sys`
+
+重点讲了三类坑：**WDK 安装**（下载链接是 HTML 落地页）、**cmd 批处理**（`(x86)` 的右括号闭合 if 块，本地测不出来）、**编译链接**（`NDIS630` 一行解决 102 条错误）。
+
+---
+
 ## 许可
 
 **禁止商业使用。**
