@@ -119,3 +119,8 @@ install_driver.bat status
 
 > 本项目为个人项目，按「现状」提供，不附带任何担保。
 
+---
+
+<div align="center">
+<sub>个人项目 · <a href="LICENSE">PolyForm Noncommercial License 1.0.0</a> · 禁止商业使用</sub>
+</div>
